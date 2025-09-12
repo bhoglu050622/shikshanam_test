@@ -179,6 +179,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   handler satisfies AppPageConfig<"/courses/yoga-darshan">
 }
 
+// Validate ../../app/dashboard/page.tsx
+{
+  const handler = {} as typeof import("../../app/dashboard/page.js")
+  handler satisfies AppPageConfig<"/dashboard">
+}
+
 // Validate ../../app/dharma-path/page.tsx
 {
   const handler = {} as typeof import("../../app/dharma-path/page.js")
@@ -237,6 +243,12 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../app/me/packages/page.js")
   handler satisfies AppPageConfig<"/me/packages">
+}
+
+// Validate ../../app/packages/[sku]/graphy/page.tsx
+{
+  const handler = {} as typeof import("../../app/packages/[sku]/graphy/page.js")
+  handler satisfies AppPageConfig<"/packages/[sku]/graphy">
 }
 
 // Validate ../../app/packages/[sku]/page.tsx
@@ -435,6 +447,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   const handler = {} as typeof import("../../app/api/graphy/learners/create/route.js")
   handler satisfies RouteHandlerConfig<"/api/graphy/learners/create">
+}
+
+// Validate ../../app/api/graphy/packages/[sku]/enroll/route.ts
+{
+  const handler = {} as typeof import("../../app/api/graphy/packages/[sku]/enroll/route.js")
+  handler satisfies RouteHandlerConfig<"/api/graphy/packages/[sku]/enroll">
+}
+
+// Validate ../../app/api/graphy/packages/[sku]/progress/route.ts
+{
+  const handler = {} as typeof import("../../app/api/graphy/packages/[sku]/progress/route.js")
+  handler satisfies RouteHandlerConfig<"/api/graphy/packages/[sku]/progress">
+}
+
+// Validate ../../app/api/graphy/packages/[sku]/sessions/route.ts
+{
+  const handler = {} as typeof import("../../app/api/graphy/packages/[sku]/sessions/route.js")
+  handler satisfies RouteHandlerConfig<"/api/graphy/packages/[sku]/sessions">
 }
 
 // Validate ../../app/api/health/route.ts
