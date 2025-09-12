@@ -1,0 +1,6 @@
+{
+  "/packages/page": "app/packages/page.js",
+  "/packages/[sku]/page": "app/packages/[sku]/page.js",
+  "/courses/page": "app/courses/page.js",
+  "/schools/darshana/page": "app/schools/darshana/page.js"
+}
