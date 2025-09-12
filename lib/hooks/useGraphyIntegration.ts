@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { graphyPackageIntegration, GraphyAPIResponse } from '@/lib/services/graphy-package-integration'
+import { graphyPackageIntegration } from '@/lib/services/graphy-package-integration'
+import { GraphyAPIResponse } from '@/lib/services/graphy-api'
 import { UserPackage, Session } from '@/lib/types/packages'
 import { useAuth } from '@/lib/auth-context'
 
