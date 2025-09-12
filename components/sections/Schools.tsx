@@ -148,8 +148,8 @@ export default function Schools() {
           </motion.p>
         </motion.div>
 
-        {/* Schools Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Schools Vertical Layout */}
+        <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
           {schools.map((school, index) => (
             <Link 
               key={school.title}
@@ -162,6 +162,7 @@ export default function Schools() {
               }}
             >
               <motion.div
+                id={`school-${school.title.toLowerCase().replace(/\s+/g, '-')}`}
                 initial={{ opacity: 0, y: 50, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}

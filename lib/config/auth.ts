@@ -2,8 +2,8 @@
 export const GOOGLE_OAUTH_CONFIG = {
   CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
   CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',
-  // Use the original redirect URI that was in the error
-  REDIRECT_URI: `${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/auth/google/callback`,
+  // Use the application base URL for redirect URI
+  REDIRECT_URI: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/auth/google/callback`,
   SCOPE: 'openid email profile',
 }
 

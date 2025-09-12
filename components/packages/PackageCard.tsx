@@ -15,25 +15,37 @@ export function PackageCard({ package: pkg, onViewDetails, onBuy }: PackageCardP
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-saffron-400 bg-white">
       <CardHeader className="p-0">
-        {pkg.thumbnailUrl && (
-          <div className="relative w-full h-48 overflow-hidden rounded-t-xl">
+        <div className="relative w-full h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-saffron-100 to-amber-100">
+          {pkg.thumbnailUrl ? (
             <Image
               src={pkg.thumbnailUrl}
               alt={pkg.name}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onError={(e) => {
+                // Fallback to placeholder if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
             />
-            {savings > 0 && (
-              <Badge 
-                className="absolute top-3 right-3 bg-emerald-600 text-white font-semibold"
-                variant="default"
-              >
-                You save ₹{savings.toLocaleString()}
-              </Badge>
-            )}
-          </div>
-        )}
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="text-center text-saffron-600">
+                <div className="text-4xl mb-2">📚</div>
+                <div className="text-sm font-medium">{pkg.name}</div>
+              </div>
+            </div>
+          )}
+          {savings > 0 && (
+            <Badge 
+              className="absolute top-3 right-3 bg-emerald-600 text-white font-semibold"
+              variant="default"
+            >
+              You save ₹{savings.toLocaleString()}
+            </Badge>
+          )}
+        </div>
       </CardHeader>
       
       <CardContent className="p-6">

@@ -8,11 +8,11 @@ import { useScrollAnimations, useStaggeredAnimations } from '@/lib/hooks/useProg
 // CMS components removed - using regular elements instead
 
 
-const quickStats = [
-  { icon: Users, label: 'Active Students', value: '2,500+' },
-  { icon: Award, label: 'Certified Gurus', value: '50+' },
-  { icon: BookOpen, label: 'Courses', value: '100+' },
-]
+// const quickStats = [
+//   { icon: Users, label: 'Active Students', value: '2,500+' },
+//   { icon: Award, label: 'Certified Gurus', value: '50+' },
+//   { icon: BookOpen, label: 'Courses', value: '100+' },
+// ]
 
 export default function Hero() {
   const [isClient, setIsClient] = useState(false)
@@ -159,8 +159,8 @@ export default function Hero() {
             )}
           </StaggerItem>
 
-          {/* Quick Stats */}
-          <StaggerItem>
+          {/* Quick Stats - Removed */}
+          {/* <StaggerItem>
             <div ref={statsRef} className="flex justify-center mb-8 sm:mb-12">
               <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
                 {quickStats.map((stat, index) => (
@@ -193,7 +193,7 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-          </StaggerItem>
+          </StaggerItem> */}
 
           <StaggerItem>
             <motion.h2 
@@ -230,21 +230,21 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  const schoolsSection = document.getElementById('schools');
-                  if (schoolsSection) {
-                    schoolsSection.scrollIntoView({ 
+                  const schoolCard = document.getElementById('school-school-of-sanskrit');
+                  if (schoolCard) {
+                    schoolCard.scrollIntoView({ 
                       behavior: 'smooth',
-                      block: 'start',
+                      block: 'center',
                       inline: 'nearest'
                     });
                     // Add temporary highlight effect
-                    schoolsSection.style.transition = 'box-shadow 0.3s ease';
-                    schoolsSection.style.boxShadow = '0 0 20px rgba(45, 67, 50, 0.5)';
+                    schoolCard.style.transition = 'box-shadow 0.3s ease';
+                    schoolCard.style.boxShadow = '0 0 30px rgba(218, 165, 32, 0.6)';
                     setTimeout(() => {
-                      schoolsSection.style.boxShadow = '';
+                      schoolCard.style.boxShadow = '';
                     }, 2000);
                   } else {
-                    console.warn('Schools section not found');
+                    console.warn('School of Sanskrit card not found');
                   }
                 }}
                 className="group bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-primary-foreground px-6 md:px-8 py-4 rounded-2xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/20 hover:border-primary/40 relative overflow-hidden cursor-pointer no-underline w-full md:w-auto"
@@ -279,21 +279,21 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  const schoolsSection = document.getElementById('schools');
-                  if (schoolsSection) {
-                    schoolsSection.scrollIntoView({ 
+                  const schoolCard = document.getElementById('school-school-of-darshana');
+                  if (schoolCard) {
+                    schoolCard.scrollIntoView({ 
                       behavior: 'smooth',
-                      block: 'start',
+                      block: 'center',
                       inline: 'nearest'
                     });
                     // Add temporary highlight effect
-                    schoolsSection.style.transition = 'box-shadow 0.3s ease';
-                    schoolsSection.style.boxShadow = '0 0 20px rgba(45, 67, 50, 0.5)';
+                    schoolCard.style.transition = 'box-shadow 0.3s ease';
+                    schoolCard.style.boxShadow = '0 0 30px rgba(139, 69, 19, 0.6)';
                     setTimeout(() => {
-                      schoolsSection.style.boxShadow = '';
+                      schoolCard.style.boxShadow = '';
                     }, 2000);
                   } else {
-                    console.warn('Schools section not found');
+                    console.warn('School of Darshan card not found');
                   }
                 }}
                 className="group bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary/80 text-secondary-foreground px-6 md:px-8 py-4 rounded-2xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary/20 hover:border-secondary/40 relative overflow-hidden cursor-pointer no-underline w-full md:w-auto"
@@ -328,21 +328,21 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  const schoolsSection = document.getElementById('schools');
-                  if (schoolsSection) {
-                    schoolsSection.scrollIntoView({ 
+                  const schoolCard = document.getElementById('school-school-of-life-skills');
+                  if (schoolCard) {
+                    schoolCard.scrollIntoView({ 
                       behavior: 'smooth',
-                      block: 'start',
+                      block: 'center',
                       inline: 'nearest'
                     });
                     // Add temporary highlight effect
-                    schoolsSection.style.transition = 'box-shadow 0.3s ease';
-                    schoolsSection.style.boxShadow = '0 0 20px rgba(45, 67, 50, 0.5)';
+                    schoolCard.style.transition = 'box-shadow 0.3s ease';
+                    schoolCard.style.boxShadow = '0 0 30px rgba(255, 140, 0, 0.6)';
                     setTimeout(() => {
-                      schoolsSection.style.boxShadow = '';
+                      schoolCard.style.boxShadow = '';
                     }, 2000);
                   } else {
-                    console.warn('Schools section not found');
+                    console.warn('School of Life Skills card not found');
                   }
                 }}
                 className="group bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent/80 text-accent-foreground px-6 md:px-8 py-4 rounded-2xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-accent/20 hover:border-accent/40 relative overflow-hidden cursor-pointer no-underline w-full md:w-auto"
