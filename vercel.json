@@ -21,6 +21,6 @@
     }
   ],
   "env": {
-    "CRON_SECRET": "@cron-secret"
+    "CRON_SECRET": "hRrbsHi+ewZwhJVuMcafy+cqnBRKWOx4SSxpI3/tSP4="
   }
 }
