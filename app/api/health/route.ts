@@ -9,6 +9,14 @@ export async function GET(request: NextRequest) {
   const startTime = Date.now();
   const requestId = request.headers.get('x-request-id') || `health_${Date.now()}`;
   
+  // Verify cron secret for security (optional but recommended)
+  const cronSecret = request.headers.get('authorization');
+  const expectedSecret = process.env.CRON_SECRET;
+  
+  if (expectedSecret && cronSecret !== `Bearer ${expectedSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  
   try {
     // Simple health check without database
     const responseTime = Date.now() - startTime;

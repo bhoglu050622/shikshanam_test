@@ -16,8 +16,11 @@
   },
   "crons": [
     {
-      "path": "/api/health-check",
-      "schedule": "0 */6 * * *"
+      "path": "/api/health",
+      "schedule": "0 0 * * *"
     }
-  ]
+  ],
+  "env": {
+    "CRON_SECRET": "@cron-secret"
+  }
 }
