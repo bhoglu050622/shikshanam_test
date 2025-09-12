@@ -7,10 +7,10 @@ import { graphyPackageIntegration } from '@/lib/services/graphy-package-integrat
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { sku: string } }
+  { params }: { params: Promise<{ sku: string }> }
 ) {
   try {
-    const { sku } = params
+    const { sku } = await params
 
     if (!sku) {
       return NextResponse.json(

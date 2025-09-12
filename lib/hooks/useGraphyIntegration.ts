@@ -156,8 +156,8 @@ export function useGraphyPackage(packageSku: string) {
 
       if (progressResult.success) setProgress(progressResult.data)
       if (usageResult.success) setUsage(usageResult.data)
-      if (sessionsResult.success) setLiveSessions(sessionsResult.data)
-      if (discussionsResult.success) setDiscussions(discussionsResult.data)
+      if (sessionsResult.success && sessionsResult.data) setLiveSessions(sessionsResult.data)
+      if (discussionsResult.success && discussionsResult.data) setDiscussions(discussionsResult.data)
 
       // Set error if any critical request failed
       if (!progressResult.success) {

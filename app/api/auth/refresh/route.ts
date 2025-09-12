@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { authService } from '@/lib/auth/auth-service'
 import { jwtAuth } from '@/lib/auth/jwt'
 
+// Force Node.js runtime to avoid Edge runtime incompatibility with jsonwebtoken
+export const runtime = 'nodejs'
+
 export async function POST(request: NextRequest) {
   try {
     // Get refresh token from cookies

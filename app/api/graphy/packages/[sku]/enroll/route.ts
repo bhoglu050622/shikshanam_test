@@ -7,10 +7,10 @@ import { graphyPackageIntegration } from '@/lib/services/graphy-package-integrat
  */
 export async function POST(
   request: NextRequest,
-  { params }: { params: { sku: string } }
+  { params }: { params: Promise<{ sku: string }> }
 ) {
   try {
-    const { sku } = params
+    const { sku } = await params
     const body = await request.json()
     const { learnerId } = body
 

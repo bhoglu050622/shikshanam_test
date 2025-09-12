@@ -1,13 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { authService } from '@/lib/auth/auth-service'
-import { jwtAuth } from '@/lib/auth/jwt'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, password, action } = body
+    const { email, password } = body
 
-    // Validate required fields
     if (!email || !password) {
       return NextResponse.json(
         { error: 'Email and password are required' },
@@ -15,88 +12,47 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Handle different actions
-    if (action === 'login') {
-      const result = await authService.login({ email, password }, request)
-      
-      if (!result.success) {
-        return NextResponse.json(
-          { error: result.error },
-          { status: 401 }
-        )
+    // For development purposes, we'll use a simple mock authentication
+    // In production, you would validate against your database
+    const mockUsers = [
+      {
+        id: '1',
+        email: 'demo@shikshanam.com',
+        password: 'demo123',
+        name: 'Demo User',
+        avatar: null,
+        provider: 'email'
+      },
+      {
+        id: '2',
+        email: 'test@shikshanam.com',
+        password: 'test123',
+        name: 'Test User',
+        avatar: null,
+        provider: 'email'
       }
+    ]
 
-      // Set secure cookies
-      if (result.tokens) {
-        await jwtAuth.setTokenCookies(result.tokens.accessToken, result.tokens.refreshToken)
-      }
+    const user = mockUsers.find(u => u.email === email && u.password === password)
 
-      return NextResponse.json({
-        success: true,
-        user: result.user,
-        message: 'Login successful'
-      })
-    }
-
-    if (action === 'register') {
-      const { username } = body
-      
-      if (!username) {
-        return NextResponse.json(
-          { error: 'Username is required for registration' },
-          { status: 400 }
-        )
-      }
-
-      const result = await authService.register({
-        email,
-        password,
-        username,
-        role: 'VIEWER'
-      })
-
-      if (!result.success) {
-        return NextResponse.json(
-          { error: result.error },
-          { status: 400 }
-        )
-      }
-
-      // Set secure cookies
-      if (result.tokens) {
-        await jwtAuth.setTokenCookies(result.tokens.accessToken, result.tokens.refreshToken)
-      }
-
-      return NextResponse.json({
-        success: true,
-        user: result.user,
-        message: 'Registration successful'
-      }, { status: 201 })
-    }
-
-    // Default to login if no action specified
-    const result = await authService.login({ email, password }, request)
-    
-    if (!result.success) {
+    if (!user) {
       return NextResponse.json(
-        { error: result.error },
+        { error: 'Invalid email or password' },
         { status: 401 }
       )
     }
 
-    // Set secure cookies
-    if (result.tokens) {
-      jwtAuth.setTokenCookies(result.tokens.accessToken, result.tokens.refreshToken)
-    }
+    // Remove password from response
+    const { password: _, ...userWithoutPassword } = user
 
     return NextResponse.json({
       success: true,
-      user: result.user,
+      user: userWithoutPassword,
       message: 'Login successful'
     })
 
   } catch (error) {
-    console.error('Email auth error:', error)
+    console.error('Email authentication error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

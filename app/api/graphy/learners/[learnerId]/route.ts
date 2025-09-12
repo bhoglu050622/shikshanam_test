@@ -7,10 +7,10 @@ import { graphyAPI } from '@/lib/services/graphy-api'
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { learnerId: string } }
+  { params }: { params: Promise<{ learnerId: string }> }
 ) {
   try {
-    const { learnerId } = params
+    const { learnerId } = await params
     const { searchParams } = new URL(request.url)
     const includeCourseInfo = searchParams.get('courseInfo') === 'true'
 

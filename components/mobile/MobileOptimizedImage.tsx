@@ -58,6 +58,7 @@ export function MobileOptimizedImage({
   const [isInView, setIsInView] = useState(false);
   const [optimizedSrc, setOptimizedSrc] = useState(src);
   const imgRef = useRef<HTMLDivElement>(null);
+  const qualityRef = useRef(quality);
 
   // Detect device and network on mount
   useEffect(() => {
@@ -98,12 +99,12 @@ export function MobileOptimizedImage({
 
     // Adjust quality based on network speed
     if (isSlowConnection()) {
-      quality = Math.min(quality, 50);
+      qualityRef.current = Math.min(qualityRef.current, 50);
     }
 
     // Adjust quality based on device pixel ratio
     if (deviceInfo.devicePixelRatio > 2) {
-      quality = Math.min(quality + 10, 90);
+      qualityRef.current = Math.min(qualityRef.current + 10, 90);
     }
 
     // Use WebP format if supported
@@ -145,23 +146,23 @@ export function MobileOptimizedImage({
   };
 
   const getOptimizedQuality = (): number => {
-    if (!deviceInfo || !networkInfo) return quality;
+    if (!deviceInfo || !networkInfo) return qualityRef.current;
 
-    let optimizedQuality = quality;
+    let optimizedQuality = qualityRef.current;
 
     // Reduce quality for slow connections
     if (isSlowConnection()) {
-      optimizedQuality = Math.min(quality, 50);
+      optimizedQuality = Math.min(qualityRef.current, 50);
     }
 
     // Increase quality for high-DPI displays
     if (deviceInfo.devicePixelRatio > 2) {
-      optimizedQuality = Math.min(quality + 10, 90);
+      optimizedQuality = Math.min(qualityRef.current + 10, 90);
     }
 
     // Reduce quality for data saver mode
     if (networkInfo.saveData) {
-      optimizedQuality = Math.min(quality, 60);
+      optimizedQuality = Math.min(qualityRef.current, 60);
     }
 
     return optimizedQuality;

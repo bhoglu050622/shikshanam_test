@@ -66,7 +66,7 @@ export function AccessibilityProvider({ children }: AccessibilityProviderProps) 
     } else {
       document.documentElement.style.fontSize = '';
     }
-  }, [accessibility.preferences]);
+  }, [accessibility]);
 
   // Set up global keyboard shortcuts
   useEffect(() => {
@@ -126,7 +126,7 @@ export function AccessibilityProvider({ children }: AccessibilityProviderProps) 
 
     document.addEventListener('keydown', handleGlobalKeydown);
     return () => document.removeEventListener('keydown', handleGlobalKeydown);
-  }, [accessibility.preferences]);
+  }, [accessibility]);
 
   return (
     <AccessibilityContext.Provider value={accessibility}>

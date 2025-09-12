@@ -6,6 +6,7 @@
 'use client';
 
 import { useState, useEffect, useRef, ReactNode } from 'react';
+import Image from 'next/image';
 import { createIntersectionObserver } from '@/lib/performance-utils';
 
 interface LazyLoaderProps {
@@ -101,14 +102,16 @@ export function LazyImage({
     >
       <div className="relative">
         {!isLoaded && (
-          <img
+          <Image
             src={placeholder}
             alt=""
+            width={width}
+            height={height}
             className={`absolute inset-0 w-full h-full object-cover ${className}`}
             style={{ width, height }}
           />
         )}
-        <img
+        <Image
           src={src}
           alt={alt}
           width={width}
