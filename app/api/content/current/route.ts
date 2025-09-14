@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     const contentLines = content.split('\n');
     const parsedContent: Record<string, string> = {};
     
-    contentLines.forEach(line => {
+    contentLines.forEach((line: string) => {
       const [key, ...valueParts] = line.split(': ');
       if (key && valueParts.length > 0) {
         parsedContent[key.trim()] = valueParts.join(': ').trim();
