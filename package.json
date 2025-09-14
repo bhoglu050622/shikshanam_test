@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3000",
     "build": "node build-with-polyfill.js",
     "build:fast": "NEXT_WEBPACK_USEPERSISTENTCACHE=1 next build",
     "build:analyze": "ANALYZE=true next build",
-    "start": "next start",
+    "start": "next start --port 3000",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "jest",
@@ -34,7 +34,11 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "db:seed": "ts-node scripts/seed-database.ts"
+    "db:seed": "ts-node scripts/seed-database.ts",
+    "setup": "./setup-env.sh",
+    "dev:cms": "cd cms-admin && npm run dev",
+    "build:cms": "cd cms-admin && npm run build",
+    "start:cms": "cd cms-admin && npm run start"
   },
   "dependencies": {
     "@prisma/client": "^6.16.1",

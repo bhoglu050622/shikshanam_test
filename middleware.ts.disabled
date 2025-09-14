@@ -24,9 +24,6 @@ const PUBLIC_API_PATHS = [
   '/api/auth/login',
   '/api/auth/logout',
   '/api/auth/refresh',
-  '/api/auth/google',
-  '/api/auth/google/callback',
-  '/api/auth/email',
 ];
 
 // Pages that should be publicly accessible

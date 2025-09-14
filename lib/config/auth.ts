@@ -2,7 +2,7 @@
 export const GOOGLE_OAUTH_CONFIG = {
   CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
   CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',
-  // Use the application base URL for redirect URI
+  // Use the application base URL for redirect URI - ensure it matches the development server port
   REDIRECT_URI: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/auth/google/callback`,
   SCOPE: 'openid email profile',
 }

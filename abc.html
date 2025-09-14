@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durgāsaptaśatī Recitation Training - Gurukula Way</title>
+    
+    <!-- Tailwind CSS for header styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts for All Components -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Hero Section Styles -->
+    <style>
+        /* --- Scoped Component Styles --- */
+        #sankhya-hero-component {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFBF5 !important; /* A very light, warm cream */
+            padding: 5rem 2rem;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            margin: 0 auto;
+            /* CSS Variables for Easy Theme Customization */
+            --bg-color: #FFFBF5;
+            --primary-color-start: #C62828; /* Deeper Red */
+            --primary-color-end: #E53935; /* Brighter Red */
+            --accent-color-start: #FFB300; /* Gold */
+            --accent-color-end: #FFD54F; /* Lighter Gold */
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --pill-bg: rgba(255, 255, 255, 0.9);
+            --pill-border: rgba(198, 40, 40, 0.2);
+            --btn-primary-shadow: rgba(198, 40, 40, 0.3);
+            --btn-secondary-shadow: rgba(255, 179, 0, 0.3);
+        }
+
+        /* --- Animations --- */
+        @keyframes hero-fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes hero-buttonBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* --- Layout --- */
+        #sankhya-hero-component .hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; 
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            margin: 0 auto;
+            padding: 0 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #sankhya-hero-component .animate-item {
+            opacity: 0;
+            animation: hero-fadeInUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            animation-fill-mode: forwards;
+        }
+        
+        /* --- Stats Pills --- */
+        #sankhya-hero-component .stats-pills {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            width: 100%;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        #sankhya-hero-component .stats-pills::-webkit-scrollbar { display: none; }
+        #sankhya-hero-component .stats-pills::before,
+        #sankhya-hero-component .stats-pills::after { content: ''; flex: 0 0 0.5rem; }
+        @media (min-width: 820px) {
+            #sankhya-hero-component .stats-pills { justify-content: center; }
+            #sankhya-hero-component .stats-pills::before,
+            #sankhya-hero-component .stats-pills::after { display: none; }
+        }
+        #sankhya-hero-component .stat-pill {
+            background-color: var(--pill-bg) !important;
+            border: 1px solid var(--pill-border) !important;
+            border-radius: 50px !important;
+            padding: 0.6rem 1.2rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            color: var(--text-dark) !important;
+            white-space: nowrap;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Center Icon --- */
+        #sankhya-hero-component .center-icon {
+            width: 80px;
+            padding: 1rem 0; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        #sankhya-hero-component #om-symbol {
+            font-family: 'Tiro Devanagari Hindi', serif; 
+            font-size: 4.5rem; 
+            font-weight: 700;
+            line-height: 1.2; 
+            background: linear-gradient(45deg, var(--accent-color-end), var(--accent-color-start));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(255, 179, 0, 0.3);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* --- Typography --- */
+        #sankhya-hero-component .hero-heading {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 4.5rem !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            color: var(--text-dark) !important;
+            margin: 0 !important;
+        }
+        #sankhya-hero-component .hero-heading .light-text {
+            color: var(--primary-color-start) !important;
+            cursor: pointer;
+            font-size: 3rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        #sankhya-hero-component .hero-heading .light-text:hover {
+            background: linear-gradient(110deg, var(--accent-color-start), var(--primary-color-start), var(--accent-color-start)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-size: 200% auto !important;
+            animation: textShine 2s linear infinite !important;
+        }
+        #sankhya-hero-component .hero-subheading {
+            font-size: 1.1rem !important;
+            color: var(--text-light) !important;
+            max-width: 650px;
+            line-height: 1.7 !important;
+            margin: 0 !important;
+        }
+        #sankhya-hero-component .hero-subheading strong {
+            color: var(--primary-color-start) !important; 
+            font-weight: 600 !important;
+        }
+
+        /* --- Buttons --- */
+        #sankhya-hero-component .button-wrapper { 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 0.75rem;
+            width: 100%; 
+        }
+        #sankhya-hero-component .main-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        #sankhya-hero-component .hero-button {
+            padding: 0.9rem 2rem !important;
+            border-radius: 50px !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            border: none !important;
+            cursor: pointer !important;
+            position: relative;
+            overflow: hidden;
+        }
+        #sankhya-hero-component .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color-start), var(--primary-color-end)) !important;
+            color: #fff !important;
+            box-shadow: 0 10px 25px -10px var(--btn-primary-shadow) !important;
+            animation: hero-buttonBob 2s ease-in-out infinite !important;
+        }
+        #sankhya-hero-component .btn-primary:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 25px -8px var(--btn-primary-shadow) !important;
+            animation-play-state: paused !important;
+        }
+        #sankhya-hero-component .btn-secondary {
+            background: linear-gradient(90deg, var(--accent-color-start), var(--accent-color-end)) !important;
+            color: var(--text-dark) !important;
+            box-shadow: 0 10px 25px -10px var(--btn-secondary-shadow) !important;
+        }
+        #sankhya-hero-component .btn-secondary:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 12px 25px -8px var(--btn-secondary-shadow) !important;
+        }
+
+        /* --- Video Preview Section --- */
+        .video-preview-wrapper {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            animation: hero-fadeInUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            animation-fill-mode: both;
+            animation-delay: 0.8s;
+        }
+
+        .video-preview-overlay {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 16/9;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, var(--primary-color-start), var(--accent-color-start));
+            padding: 4px;
+        }
+
+        .video-preview-overlay:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-preview-inner {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-preview-text-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .video-preview-text-top h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .video-preview-text-top p {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color-start);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-preview-text-bottom {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            max-width: 500px;
+        }
+
+        /* --- Video Modal Styles --- */
+        #sankhya-hero-component .video-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #sankhya-hero-component .video-modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #sankhya-hero-component .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        #sankhya-hero-component .video-modal-overlay.visible .video-modal-content {
+            transform: scale(1);
+        }
+        #sankhya-hero-component .video-modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #sankhya-hero-component .video-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        #sankhya-hero-component .video-modal-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            #sankhya-hero-component { 
+                padding: 4rem 1rem !important; 
+            }
+            #sankhya-hero-component .hero-heading { font-size: 3.5rem !important; }
+             #sankhya-hero-component .hero-heading .light-text { font-size: 2.5rem; }
+            #sankhya-hero-component .hero-subheading { font-size: 1rem !important; }
+            .video-preview-text-top h3 { font-size: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            #sankhya-hero-component .hero-heading { font-size: 2.8rem !important; }
+            #sankhya-hero-component .hero-heading .light-text { font-size: 2rem; }
+            #sankhya-hero-component .main-buttons { 
+                flex-direction: column; 
+                width: 100%; 
+                align-items: stretch; 
+            }
+            .video-preview-overlay { padding: 1rem; }
+        }
+
+        /* --- Interactive Sanskrit Flashcards Section Styles --- */
+        #interactive-flashcards-section {
+            width: 100%;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #FFFBF5 0%, #F8F4F0 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .flashcards-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+        
+        .flashcards-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #C62828, #FFB300);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .flashcards-header p {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+        
+        .flashcards-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 640px) {
+            .flashcards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .flashcards-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .flashcard {
+            background-color: transparent;
+            width: 100%;
+            height: 140px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+        
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+        }
+        
+        .flashcard.is-flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(198, 40, 40, 0.1);
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .flashcard-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid rgba(198, 40, 40, 0.1);
+            justify-content: flex-start;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .flashcard-front:hover {
+            border-color: rgba(198, 40, 40, 0.3);
+            box-shadow: 0 12px 35px rgba(198, 40, 40, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .flashcard-back {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .flashcard-icon-container {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #C62828 0%, #E53935 100%);
+            margin-right: 1rem;
+            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3);
+        }
+        
+        .flashcard-icon-container span {
+           color: white;
+           font-size: 1.5rem;
+           font-weight: bold;
+        }
+        
+        .flashcard-text-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .flashcard-sanskrit-text {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .flip-indicator-text {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-top: 0.25rem;
+        }
+        
+        .flashcard-back .translation-group {
+            margin: 0.25rem 0;
+        }
+        
+        .flashcard-back .lang-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            color: #FFB300;
+        }
+        
+        .flashcard-back .translation-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ecf0f1;
+        }
+        
+        .flip-back-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: rgba(255, 179, 0, 0.6);
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .flashcard:hover .flip-back-indicator {
+            transform: rotate(180deg);
+            color: #FFB300;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Hero Section HTML -->
+    <div id="sankhya-hero-component">
+        <canvas id="sankhya-canvas"></canvas>
+        
+
+        <div class="hero-wrapper">
+            <!-- UPDATED: Top tabs with English text -->
+            <div class="stats-pills animate-item" style="animation-delay: 0s;">
+                <div class="stat-pill">
+                    Pure Pronunciation
+                </div>
+                <div class="stat-pill">
+                    Melodious Recitation
+                </div>
+                <div class="stat-pill">
+                    Authentic Methodology
+                </div>
+            </div>
+            
+            <div class="center-icon animate-item" style="animation-delay: 0.2s;">
+                <span id="om-symbol">ॐ</span>
+            </div>
+
+            <!-- UPDATED: Hero heading text in English -->
+            <h1 class="hero-heading animate-item" style="animation-delay: 0.4s;">
+                Mastering Durgāsaptaśatī
+                <span class="light-text">The Gurukula Way</span>
+            </h1>
+
+            <!-- UPDATED: Hero subheading text -->
+            <p class="hero-subheading animate-item" style="animation-delay: 0.5s;">
+                Learn the authentic recitation of <strong>Durgāsaptaśatī</strong> with traditional methods, live from a Gurukula environment.
+            </p>
+
+            <!-- UPDATED: Button text in English -->
+            <div class="button-wrapper animate-item" style="animation-delay: 0.6s;">
+                <div class="main-buttons">
+                    <a href="#" class="hero-button btn-primary">
+                        <i class="fas fa-play"></i>
+                        Start Learning Now
+                    </a>
+                    <a href="#" class="hero-button btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Video Preview Section -->
+            <div class="video-preview-wrapper">
+                <div class="video-preview-overlay" onclick="openVideoModal()">
+                    <div class="video-preview-inner">
+                        <div class="video-preview-text-top">
+                            <h3>Experience the Sacred Recitation</h3>
+                            <p>Watch our Gurukula master demonstrate the authentic pronunciation</p>
+                        </div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-preview-text-bottom">
+                    <p>Click to watch a preview of our traditional teaching methodology</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Modal -->
+        <div class="video-modal-overlay" id="videoModal">
+            <div class="video-modal-content">
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+                <iframe class="video-modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Sanskrit Flashcards Section -->
+    <section id="interactive-flashcards-section">
+        <div class="flashcards-header">
+            <h2>Master Sanskrit Through Sacred Practice</h2>
+            <p>Engage with the divine language of Durgāsaptaśatī through interactive learning. Each card reveals the spiritual essence of Sanskrit words used in our sacred recitation.</p>
+        </div>
+        <div class="flashcards-container">
+            <!-- Card 1 -->
+            <div class="flashcard" data-card-id="1">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon-container">
+                            <span>🕉️</span>
+                        </div>
+                        <div class="flashcard-text-content">
+                            <p class="flashcard-sanskrit-text">दुर्गा</p>
+                            <p class="flip-indicator-text">Tap to reveal meaning</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flip-back-indicator" title="Tap to flip back">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Spiritual Meaning</p>
+                            <p class="translation-text">The Divine Mother who removes all obstacles</p>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">In Durgāsaptaśatī</p>
+                            <p class="translation-text">The central deity of our sacred text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flashcard" data-card-id="2">
+                <div class="flashcard-inner">
+                     <div class="flashcard-front">
+                        <div class="flashcard-icon-container">
+                           <span>📜</span>
+                        </div>
+                        <div class="flashcard-text-content">
+                            <p class="flashcard-sanskrit-text">सप्तशती</p>
+                            <p class="flip-indicator-text">Tap to reveal meaning</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                         <div class="flip-back-indicator" title="Tap to flip back">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Literal Meaning</p>
+                            <p class="translation-text">Seven hundred verses</p>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Sacred Significance</p>
+                            <p class="translation-text">The complete collection of divine hymns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flashcard" data-card-id="3">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon-container">
+                            <span>🌟</span>
+                        </div>
+                        <div class="flashcard-text-content">
+                            <p class="flashcard-sanskrit-text">महिषासुर</p>
+                            <p class="flip-indicator-text">Tap to reveal meaning</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                         <div class="flip-back-indicator" title="Tap to flip back">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Symbolic Meaning</p>
+                            <p class="translation-text">The ego and ignorance within us</p>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Spiritual Lesson</p>
+                            <p class="translation-text">What we must overcome through devotion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Card 4 -->
+            <div class="flashcard" data-card-id="4">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="flashcard-icon-container">
+                            <span>🕯️</span>
+                        </div>
+                        <div class="flashcard-text-content">
+                            <p class="flashcard-sanskrit-text">पाठ</p>
+                            <p class="flip-indicator-text">Tap to reveal meaning</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                         <div class="flip-back-indicator" title="Tap to flip back">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Traditional Practice</p>
+                            <p class="translation-text">Sacred recitation with proper pronunciation</p>
+                        </div>
+                        <div class="translation-group">
+                            <p class="lang-label">Gurukula Method</p>
+                            <p class="translation-text">Learning through authentic oral tradition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Combined Scripts for All Components -->
+    <script>
+        // Self-executing function to prevent conflicts with other scripts, especially in Elementor
+        (() => {
+            // Function to initialize the Hero Section
+            const initializeSankhyaHeroComponent = () => {
+                const component = document.getElementById('sankhya-hero-component');
+                if (!component || component.dataset.initialized) {
+                    return;
+                }
+                component.dataset.initialized = 'true';
+
+                // Video Modal Functions
+                window.openVideoModal = function() {
+                    const modal = document.getElementById('videoModal');
+                    const iframe = modal.querySelector('.video-modal-iframe');
+                    iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+                    modal.classList.add('visible');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                window.closeVideoModal = function() {
+                    const modal = document.getElementById('videoModal');
+                    const iframe = modal.querySelector('.video-modal-iframe');
+                    modal.classList.remove('visible');
+                    iframe.src = '';
+                    document.body.style.overflow = '';
+                };
+
+                // Close modal when clicking outside
+                const modal = document.getElementById('videoModal');
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeVideoModal();
+                    }
+                });
+
+                // Close modal with Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeVideoModal();
+                    }
+                });
+            };
+
+            // Function to initialize the Interactive Sanskrit Flashcards
+            const initializeFlashcards = () => {
+                try {
+                    // Data for the flashcards with Durgāsaptaśatī theme
+                    const cardDataSets = {
+                        '1': [
+                            { sanskrit: 'दुर्गा', spiritual: 'The Divine Mother who removes all obstacles', context: 'The central deity of our sacred text' },
+                            { sanskrit: 'शक्ति', spiritual: 'Divine feminine power and energy', context: 'The essence of cosmic creation' }
+                        ],
+                        '2': [
+                            { sanskrit: 'सप्तशती', spiritual: 'Seven hundred verses', context: 'The complete collection of divine hymns' },
+                            { sanskrit: 'मन्त्र', spiritual: 'Sacred sound vibrations', context: 'Powerful words for spiritual transformation' }
+                        ],
+                        '3': [
+                            { sanskrit: 'महिषासुर', spiritual: 'The ego and ignorance within us', context: 'What we must overcome through devotion' },
+                            { sanskrit: 'असुर', spiritual: 'Negative tendencies and darkness', context: 'Inner demons to be conquered' }
+                        ],
+                        '4': [
+                            { sanskrit: 'पाठ', spiritual: 'Sacred recitation with proper pronunciation', context: 'Learning through authentic oral tradition' },
+                            { sanskrit: 'गुरुकुल', spiritual: 'Traditional learning environment', context: 'Where wisdom is passed from teacher to student' }
+                        ]
+                    };
+
+                    const cardIndexes = { '1': 0, '2': 0, '3': 0, '4': 0 };
+                    const cardTimers = {};
+                    
+                    const flashcards = document.querySelectorAll('.flashcard');
+                    if(flashcards.length === 0) return;
+
+                    const startAutoFlipTimer = (card) => {
+                        const cardId = card.dataset.cardId;
+                        clearTimeout(cardTimers[cardId]);
+                        cardTimers[cardId] = setTimeout(() => {
+                            card.classList.toggle('is-flipped');
+                            startAutoFlipTimer(card);
+                        }, 40000);
+                    };
+
+                    flashcards.forEach(card => {
+                        const cardId = card.dataset.cardId;
+                        const cardInner = card.querySelector('.flashcard-inner');
+
+                        const updateCardContent = () => {
+                            const dataSet = cardDataSets[cardId];
+                            const currentIndex = cardIndexes[cardId];
+                            const nextIndex = (currentIndex + 1) % dataSet.length;
+                            cardIndexes[cardId] = nextIndex;
+                            
+                            const nextData = dataSet[nextIndex];
+
+                            const frontSanskrit = card.querySelector('.flashcard-sanskrit-text');
+                            const backSpiritual = card.querySelector('.flashcard-back .translation-text:first-of-type');
+                            const backContext = card.querySelector('.flashcard-back .translation-text:last-of-type');
+                            
+                            frontSanskrit.textContent = nextData.sanskrit;
+                            backSpiritual.textContent = nextData.spiritual;
+                            backContext.textContent = nextData.context;
+                        };
+
+                        cardInner.addEventListener('transitionend', (event) => {
+                            if (event.propertyName === 'transform' && event.target === cardInner) {
+                                if (!card.classList.contains('is-flipped')) {
+                                    updateCardContent();
+                                }
+                            }
+                        });
+
+                        card.addEventListener('click', () => {
+                            card.classList.toggle('is-flipped');
+                            startAutoFlipTimer(card);
+                        });
+                        
+                        startAutoFlipTimer(card);
+                    });
+                } catch (error) {
+                    console.error("Error initializing flashcards:", error);
+                }
+            };
+
+            // Function to run all scripts
+            const runAllScripts = () => {
+                initializeSankhyaHeroComponent();
+                initializeFlashcards();
+            };
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', runAllScripts);
+            } else {
+                runAllScripts();
+            }
+        })();
+    </script>
+
+</body>
+</html>
