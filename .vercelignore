@@ -28,3 +28,6 @@ dist/
 # Cache directories
 node_modules/.cache/
 .cache/
+
+# CMS Admin (separate deployment)
+cms-admin/

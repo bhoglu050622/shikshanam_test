@@ -14,12 +14,6 @@
       "NEXT_WEBPACK_USEPERSISTENTCACHE": "1"
     }
   },
-  "crons": [
-    {
-      "path": "/api/health",
-      "schedule": "0 0 * * *"
-    }
-  ],
   "env": {
     "CRON_SECRET": "hRrbsHi+ewZwhJVuMcafy+cqnBRKWOx4SSxpI3/tSP4="
   }
