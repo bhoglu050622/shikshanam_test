@@ -2,6 +2,7 @@
 // API-only approach with proper security, validation, and error handling
 
 import { useState, useEffect, useCallback } from 'react';
+import { config } from './config/cms-config';
 
 // Type definitions
 interface CMSContent {
@@ -26,13 +27,13 @@ interface ContentCache {
   expires: number;
 }
 
-// Configuration
+// Configuration - using centralized config
 const CONFIG = {
-  API_BASE_URL: process.env.NEXT_PUBLIC_CMS_API_URL || 'https://cms-admin-q4bv31v7n-amanamns-projects.vercel.app',
-  CACHE_DURATION: 5 * 60 * 1000, // 5 minutes
-  MAX_RETRIES: 3,
-  RETRY_DELAY: 1000, // 1 second
-  REQUEST_TIMEOUT: 10000, // 10 seconds
+  API_BASE_URL: config.CMS_API_URL,
+  CACHE_DURATION: config.CACHE_DURATION,
+  MAX_RETRIES: config.MAX_RETRIES,
+  RETRY_DELAY: config.RETRY_DELAY,
+  REQUEST_TIMEOUT: config.REQUEST_TIMEOUT,
 } as const;
 
 // Secure cache management
