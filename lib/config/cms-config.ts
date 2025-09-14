@@ -6,7 +6,7 @@ export const CMS_CONFIG = {
   MAIN_WEBSITE_URL: 'https://shikshanam-khgszdiy2-amanamns-projects.vercel.app',
   
   // CMS Admin URL (where the CMS is deployed)
-  CMS_API_URL: 'https://cms-admin-cktcy38rn-amanamns-projects.vercel.app',
+  CMS_API_URL: 'https://cms-admin-q1o52td7l-amanamns-projects.vercel.app',
   
   // API endpoints
   CONTENT_API_ENDPOINT: '/api/content-secure',
