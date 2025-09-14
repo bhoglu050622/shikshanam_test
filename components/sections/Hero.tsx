@@ -5,7 +5,7 @@ import { BookOpen, Sparkles, Flower, Users, Award } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import MotionWrapper, { StaggerContainer, StaggerItem } from '../motion/MotionWrapper'
 import { useScrollAnimations, useStaggeredAnimations } from '@/lib/hooks/useProgressiveAnimations'
-import { useCMSContent } from '@/lib/cms-content'
+import { useCMSContent } from '@/lib/cms-content-secure'
 // CMS components removed - using regular elements instead
 
 
