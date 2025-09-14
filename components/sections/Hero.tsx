@@ -128,8 +128,6 @@ export default function Hero() {
                 ref={titleRef} 
                 className="text-mobile-hero text-high-contrast mb-6 sm:mb-8 text-shadow-sm"
               >
-                <span className="inline">Welcome to</span>
-                {' '}
                 <span className="bg-gradient-to-r from-[#8B5CF6] via-secondary to-accent bg-clip-text text-transparent">
                   <span className="inline">{cmsContent.mainTitle || 'Welcome to Ancient Wisdom'}</span>
                 </span>
