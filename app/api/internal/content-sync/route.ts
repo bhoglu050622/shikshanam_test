@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
  * It uses a special internal token for security
  */
 
-const INTERNAL_API_TOKEN = process.env.INTERNAL_API_TOKEN || 'shikshanam-internal-sync-2024';
+const INTERNAL_API_TOKEN = process.env.INTERNAL_API_TOKEN || process.env.FRONTEND_API_TOKEN || 'shikshanam-internal-sync-2024';
 
 // Validate internal API token
 function validateInternalToken(request: NextRequest): boolean {
