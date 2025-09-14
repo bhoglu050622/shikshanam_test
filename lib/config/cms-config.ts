@@ -3,10 +3,10 @@
 
 export const CMS_CONFIG = {
   // Main website URL (where the frontend is deployed)
-  MAIN_WEBSITE_URL: 'https://shikshanam-kvxwlq7oa-amanamns-projects.vercel.app',
+  MAIN_WEBSITE_URL: 'https://shikshanam-q75dgnx28-amanamns-projects.vercel.app',
   
   // CMS Admin URL (where the CMS is deployed)
-  CMS_API_URL: 'https://cms-admin-djvbhs0ty-amanamns-projects.vercel.app',
+  CMS_API_URL: 'https://cms-admin-agtv97ilr-amanamns-projects.vercel.app',
   
   // API endpoints
   CONTENT_API_ENDPOINT: '/api/content-secure',
