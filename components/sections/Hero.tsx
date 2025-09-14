@@ -5,6 +5,7 @@ import { BookOpen, Sparkles, Flower, Users, Award } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import MotionWrapper, { StaggerContainer, StaggerItem } from '../motion/MotionWrapper'
 import { useScrollAnimations, useStaggeredAnimations } from '@/lib/hooks/useProgressiveAnimations'
+import { useCMSContent } from '@/lib/cms-content'
 // CMS components removed - using regular elements instead
 
 
@@ -17,6 +18,9 @@ import { useScrollAnimations, useStaggeredAnimations } from '@/lib/hooks/useProg
 export default function Hero() {
   const [isClient, setIsClient] = useState(false)
   const [mounted, setMounted] = useState(false)
+  
+  // Fetch CMS content
+  const { content: cmsContent, loading: cmsLoading } = useCMSContent('components/sections/Hero.tsx')
   
   // Progressive animations
   const titleRef = useScrollAnimations('fadeIn', { delay: 200 })
@@ -116,7 +120,7 @@ export default function Hero() {
                   }}
                   style={{ backgroundSize: '200% 200%' }}
                 >
-                  <span className="inline">Welcome to Ancient Wisdom</span>
+                  <span className="inline">{cmsContent.mainTitle || 'Welcome to Ancient Wisdom'}</span>
                 </motion.span>
               </motion.h1>
             ) : (
@@ -127,7 +131,7 @@ export default function Hero() {
                 <span className="inline">Welcome to</span>
                 {' '}
                 <span className="bg-gradient-to-r from-[#8B5CF6] via-secondary to-accent bg-clip-text text-transparent">
-                  <span className="inline">Welcome to Ancient Wisdom</span>
+                  <span className="inline">{cmsContent.mainTitle || 'Welcome to Ancient Wisdom'}</span>
                 </span>
               </h1>
             )}
@@ -146,7 +150,7 @@ export default function Hero() {
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="inline">Where Technology meets Tradition</span>
+                  <span className="inline">{cmsContent.subtitle || 'Where Technology meets Tradition'}</span>
                 </motion.span>
               </motion.p>
             ) : (
@@ -154,7 +158,7 @@ export default function Hero() {
                 ref={subtitleRef} 
                 className="text-mobile-subheading text-high-contrast mb-12 sm:mb-16 max-w-4xl sm:max-w-5xl mx-auto devanagari-separator text-readable"
               >
-                <span className="inline">Where Technology meets Tradition</span>
+                <span className="inline">{cmsContent.subtitle || 'Where Technology meets Tradition'}</span>
               </p>
             )}
           </StaggerItem>
@@ -212,7 +216,7 @@ export default function Hero() {
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <span className="inline">What are you looking for?</span>
+                <span className="inline">{cmsContent.question || 'What are you looking for?'}</span>
               </motion.span>
             </motion.h2>
           </StaggerItem>
@@ -254,7 +258,7 @@ export default function Hero() {
                   animate={{ textShadow: ['0 0 0px rgba(255,255,255,0)', '0 0 10px rgba(255,255,255,0.5)', '0 0 0px rgba(255,255,255,0)'] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="inline">Explore Now</span>
+                  <span className="inline">{cmsContent.buttonText || 'Explore Now'}</span>
                 </motion.span>
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
